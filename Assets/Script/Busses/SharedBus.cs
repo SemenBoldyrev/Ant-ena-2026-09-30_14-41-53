@@ -1,4 +1,5 @@
-﻿using Assets.Script.RayMousePosScr;
+﻿using Assets.Script.CustomDebug;
+using Assets.Script.RayMousePosScr;
 using Assets.Script.RayMousePosScr.Interfaces;
 using Assets.Script.StupidMathScr;
 using Assets.Script.StupidMathScr.Interfaces;
@@ -14,8 +15,10 @@ namespace Assets.Script.Busses
     {
         private static IRelativeMousePos relativeMousePos = new RelativeMousePos();
         private static IStupidMath stupidMath = new StupidMath();
+        private static ICustomDebugger customDebugger = new CustomDebugger();
 
         public static IRelativeMousePos RelativeMousePos => relativeMousePos;
         public static IStupidMath StupidMath => stupidMath;
+        public static ICustomDebugger CustomDebugger => customDebugger;
     }
 }
