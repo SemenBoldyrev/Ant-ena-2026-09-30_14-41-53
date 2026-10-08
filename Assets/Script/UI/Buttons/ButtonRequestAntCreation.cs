@@ -15,6 +15,7 @@ namespace Assets.Script.UI.Buttons
 {
     public class ButtonRequestAntCreation: MonoBehaviour, IAntDataShower, IPointerClickHandler
     {
+        [Tooltip("-1 for if you dont want to,\nany other id, if you want it to be shown")]
         [SerializeField] private int ovverideAntInButton = -1;
 
         [SerializeField] private TMP_Text text;
@@ -40,15 +41,10 @@ namespace Assets.Script.UI.Buttons
             text.text = name;
         }
 
-        public void OnPress()
-        {
-
-        }
-
         public void OnPointerClick(PointerEventData eventData)
         {
             try { SignalBus.AntCreateRequestEmit(CurAntStruct); } // I need to read about nullable types
-            catch (Exception e) { SharedBus.CustomDebugger.ShowInConsole("req_but", e.Message); }
+            catch (Exception e) { SharedBus.CustomDebugger.ShowInConsole("req_but_ant", e.Message); }
             
         }
     }

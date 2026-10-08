@@ -19,7 +19,7 @@ namespace Assets.Script.AntHouseScr
 
         private List<AntBase> ants = new List<AntBase>();
 
-        private void Awake()
+        private void OnEnable()
         {
             SignalBus.AntCreateRequest += SignalBus_AntCreateRequest;
         }
