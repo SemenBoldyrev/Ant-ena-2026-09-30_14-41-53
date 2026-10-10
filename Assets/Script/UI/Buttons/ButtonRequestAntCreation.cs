@@ -43,8 +43,9 @@ namespace Assets.Script.UI.Buttons
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            try { SignalBus.AntCreateRequestEmit(CurAntStruct); } // I need to read about nullable types
-            catch (Exception e) { SharedBus.CustomDebugger.ShowInConsole("req_but_ant", e.Message); }
+            SignalBus.AntCreateRequestEmit(CurAntStruct);
+            //try { SignalBus.AntCreateRequestEmit(CurAntStruct); } // I need to read about nullable types
+            //catch (Exception e) { SharedBus.CustomDebugger.ShowInConsole("req_but_ant", e.Message); }
             
         }
     }

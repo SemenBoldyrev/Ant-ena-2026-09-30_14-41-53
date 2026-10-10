@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Script.AntHouseScr.AntHouse
   keyPoint: {fileID: 1957876875950261071}
   antPrefab: {fileID: 3350273727233076141, guid: b9176a5aee7b6f1478e83856c8b6f5a9, type: 3}
+  TimeToAssignWork: 2
 --- !u!1 &5833279197901669764
 GameObject:
   m_ObjectHideFlags: 0

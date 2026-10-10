@@ -16,6 +16,10 @@ namespace Assets.Script.Busses
         public static event Action<FoodBase> FoodAppear;
         public static event Action<FoodBase> FoodDisappear;
 
+        public static event Action<int> GiveFood;
+        public static event Action<int> TakeFood;
+        public static event Action<int> FoodAmountChanged;
+
         public static void AntCreateRequestEmit(AntStruct data)
         {
             AntCreateRequest?.Invoke(data);
@@ -38,6 +42,24 @@ namespace Assets.Script.Busses
         {
             FoodDisappear?.Invoke(data);
             SharedBus.CustomDebugger.ShowInConsole("signal_bus", $"FoodDisappear emited: {data.LoadedFoodStruct.Name}");
+        }
+
+        public static void GiveFoodEmit(int data)
+        {
+            GiveFood?.Invoke(data);
+            SharedBus.CustomDebugger.ShowInConsole("signal_bus", $"GiveFood emited: {data}");
+        }
+
+        public static void TakeFoodEmit(int data)
+        {
+            TakeFood?.Invoke(data);
+            SharedBus.CustomDebugger.ShowInConsole("signal_bus", $"TakeFood emited: {data}");
+        }
+
+        public static void FoodAmountChangedEmit(int data)
+        {
+            FoodAmountChanged?.Invoke(data);
+            SharedBus.CustomDebugger.ShowInConsole("signal_bus", $"FoodAmountChanged emited: {data}");
         }
     }
 }

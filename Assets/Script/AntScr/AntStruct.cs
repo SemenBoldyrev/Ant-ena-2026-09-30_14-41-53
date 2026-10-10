@@ -13,6 +13,8 @@ namespace Assets.Script.AntScr
     {
         [SerializeField] private string name;
         [SerializeField] private float speed;
+        [SerializeField] private int canTakeFood;
+        [SerializeField] private int price;
 
         private AntHouse antHouse;
 
@@ -21,5 +23,7 @@ namespace Assets.Script.AntScr
         public string Name { get { return name; } set { name = value; } }
         public float Speed { get { return speed; } set { speed = value; } }
         public AntHouse House { get { return antHouse; } set { antHouse = value; } }
+        public int CanTakeFood { get { return canTakeFood; } set { canTakeFood = value; } }
+        public int Price { get { return price; } set { price = value; } }
     }
 }

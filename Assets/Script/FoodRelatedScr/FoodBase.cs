@@ -33,6 +33,7 @@ namespace Assets.Script.FoodRelatedScr
 
             loadedFoodStruct = data;
             curFoodAmount = loadedFoodStruct.FoodAmount;
+            Debug.Log($"{curFoodAmount} === {loadedFoodStruct.FoodAmount}");
             ChangeSpriteFoodBased();
 
             SignalBus.FoodAppearEmit(this);
@@ -50,14 +51,12 @@ namespace Assets.Script.FoodRelatedScr
         {
             if (loadedFoodStruct == null) return;
 
-            int nextSprite = loadedFoodStruct.Sprites.Count - (int)(((float)curFoodAmount / (float)loadedFoodStruct.FoodAmount) * loadedFoodStruct.Sprites.Count);
+            int nextSprite = (loadedFoodStruct.Sprites.Count - 1) - (int)(((float)curFoodAmount / (float)loadedFoodStruct.FoodAmount) * (loadedFoodStruct.Sprites.Count - 1));
 
             if (hideOnEmpty && nextSprite == loadedFoodStruct.Sprites.Count)
             {
                 Clear();
             }
-
-            Debug.Log(nextSprite);
             spriteRenderer.sprite = loadedFoodStruct.Sprites[nextSprite]; // it will ramain as integer because a and b are?
         }
 
@@ -82,6 +81,8 @@ namespace Assets.Script.FoodRelatedScr
             curFoodAmount -= toGive;
 
             ChangeSpriteFoodBased();
+
+            if (!HasFood()) SignalBus.FoodDisappearEmit(this);
 
             return toGive;
         }
